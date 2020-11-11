@@ -1,0 +1,28 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+
+<div class="app-container {{config.theme.class}}">
+    <mat-sidenav-container [hasBackdrop]="config.sidebar.hasBackdrop" fullscreen>
+        <!-- Left Side-->
+        <mat-sidenav #sidenav [mode]="config.sidebar.mode" [opened]="config.sidebar.opened && currentUser" fxLayout="column">
+            <app-sidenav *ngIf="currentUser" [config]="config"></app-sidenav>
+        </mat-sidenav>
+
+        <!-- Right Side-->
+        <mat-sidenav-content fxLayout="column">
+
+            <!-- Header-->
+            <div *ngIf="currentUser">
+                <app-header></app-header>
+            </div>
+
+            <!-- Content -->
+            <div class="app-body">
+                <div [@routerTransitionRight]="o.isActivated ? o.activatedRoute : ''">
+                    <router-outlet #o="outlet"></router-outlet>
+                </div>
+            </div>
+
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+</div>

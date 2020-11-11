@@ -1,0 +1,13 @@
+/**
+ * Need to import a default theme before cutsomise theming.
+ * Required for fix some Angular Material CSS issues like mat-select-panel'
+ */
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+
+@import "../ui/sidenav/sidenav.theme.scss";
+@import "../ui/material-color-picker/material-color-picker.theme.scss";
+
+@mixin core-theme($theme) {
+    @include sidenav-theme($theme);
+    @include material-color-picker-theme($theme)
+}

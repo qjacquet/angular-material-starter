@@ -1,0 +1,56 @@
+<div class="navbar">
+    <div class="navbar-top">
+
+        <div class="logo">
+            <img class="logo-icon" src="{{config.logoPath}}">
+            <span class="logo-text">{{config.title}}</span>
+        </div>
+
+        <div class="buttons">
+            <button mat-icon-button [matMenuTriggerFor]="menu" *ngIf="config.theme.canChange">
+                <mat-icon>palette</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+                <button mat-menu-item (click)="setTheme('theme-default')">
+                    <span>Theme 1</span>
+                </button>
+                <button mat-menu-item (click)="setTheme('theme-yellow-light')"> 
+                    <span>Theme 2</span>
+                </button>
+                <button mat-menu-item (click)="setTheme('theme-blue-gray-dark')">
+                    <span>Theme 3</span>
+                </button>
+                <button mat-menu-item (click)="setTheme('theme-pink-dark')">
+                    <span>Theme 4</span>
+                </button>
+            </mat-menu>
+            <button mat-icon-button class="toggle-sidebar-folded" (click)="hide()">
+                <mat-icon class="secondary-text">menu</mat-icon>
+            </button>
+        </div>
+
+    </div>
+
+    <div class="navbar-content">
+        <div class="user" fxLayout="column" *ngIf="currentUser">
+            <div class="avatar-container">
+                <img class="avatar" [src]="currentUser.profile.avatarBase64">
+                <button mat-icon-button (click)="fileInput.click()" color="white" style="position: absolute;bottom: -5px;left: 20px;opacity: 0.8;">
+                    <mat-icon>camera_alt</mat-icon>
+                </button>
+                <input hidden (change)="onSelectFile($event)" #fileInput type="file" id="file">
+            </div> 
+            <div class="mat-h3">{{currentUser.profile.firstName}} {{currentUser.profile.lastName}}</div>
+            <button mat-icon-button (click)="disconnect()" color="white">
+                <mat-icon>camera_alt</mat-icon>
+            </button>
+        </div>
+        <div class="nav">
+            <ng-container *ngFor="let item of items">
+                <nav-group *ngIf="item.type=='group'" [item]="item"></nav-group>
+                <nav-collapsable *ngIf="item.type=='collapsable'" [item]="item"></nav-collapsable>
+                <nav-item *ngIf="item.type=='item'" [item]="item"></nav-item>
+            </ng-container>
+        </div>
+    </div>
+</div>

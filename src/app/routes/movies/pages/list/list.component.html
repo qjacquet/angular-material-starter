@@ -1,0 +1,5 @@
+<div fxLayout="row wrap" fxLayoutGap="32px grid" fxLayout.xs="column" fxLayoutAlign="flex-start">
+    <ng-container *ngFor="let movie of movies">
+        <app-movie-card [movie]="movie" fxFlex></app-movie-card>
+    </ng-container>
+</div>

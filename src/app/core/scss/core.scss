@@ -1,0 +1,12 @@
+@import '~@angular/material/theming';
+
+// Theme
+@import "themes";
+
+// Include core Angular Material styles
+ @include mat-core();
+
+
+// Partials
+@import "partials/colors";
+@import "partials/navigation";

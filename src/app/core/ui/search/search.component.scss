@@ -1,0 +1,35 @@
+:host {
+    display: block;
+    width: 100%;
+    color: white;
+
+    #searchInput:focus { 
+        caret-color: white;
+    }
+
+    #searchInput:focus::placeholder { 
+        color: white;
+    }
+
+    ::ng-deep .mat-form-field {
+        font-size: 32px;
+        width: 100%;
+        padding: 0px 20%;
+    }
+
+    ::ng-deep mat-label {
+        color: white;
+    }
+
+    ::ng-deep .mat-form-field-underline {
+        background-color: white;
+    }
+
+    ::ng-deep .mat-form-field.mat-focused .mat-form-field-ripple {
+        background-color: white;
+    }
+
+    ::ng-deep .mat-form-field-label {
+        color: white;
+    }
+}

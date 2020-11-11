@@ -1,0 +1,24 @@
+<mat-toolbar color="primary" class="mat-elevation-z6" fxLayout="row" fxLayoutAlign="start center">
+    <mat-toolbar-row fxLayout="row"> 
+        <button mat-icon-button class="toggle-sidebar" 
+            *ngIf="!isOpenSidenav()"
+            (click)="showSidenav()">
+            <mat-icon class="secondary-text">menu</mat-icon>
+        </button>
+        <button mat-icon-button matSuffix (click)="openSearchOverlay()">
+            <mat-icon>search</mat-icon>
+        </button>
+
+        <span fxFlex></span>
+
+        <div class="tools">
+
+        </div>
+
+        <span fxFlex></span>
+
+        <div class="right-items">
+        </div>
+
+    </mat-toolbar-row>
+</mat-toolbar>
