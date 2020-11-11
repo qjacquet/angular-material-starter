@@ -13,7 +13,7 @@ export class MovieApiService {
     ) {
         this.url = environment.api.movies.url + environment.api.movies.version + '/';
         this.key = environment.api.movies.key;
-     }
+    }
 
     getAll(params: string, page: number) {
         return this.http.get(this.url + 'discover/movie?api_key=' + this.key + params + '&page=' + page);
