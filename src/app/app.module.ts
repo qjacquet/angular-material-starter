@@ -1,4 +1,7 @@
-import { FullscreenOverlayContainer, OverlayContainer } from '@angular/cdk/overlay';
+import {
+  FullscreenOverlayContainer,
+  OverlayContainer,
+} from '@angular/cdk/overlay';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LOCALE_ID, NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -12,7 +15,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DirectivesModule } from './core/directives';
 import { ErrorInterceptor } from './core/helpers/error.interceptor';
-import { BackendProvider, FakeBackendProvider } from './core/helpers/fake-backend';
+import {
+  BackendProvider,
+  FakeBackendProvider,
+} from './core/helpers/fake-backend';
 import { JwtInterceptor } from './core/helpers/jwt.interceptor';
 import { AuthenticationService } from './core/services/authentication.service';
 import { ConfigService } from './core/services/config.service';
@@ -44,16 +50,18 @@ import { HeaderComponent } from './layout/header/header.component';
     FlexLayoutModule,
     SharedModule,
     HttpClientModule,
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+    }),
     LoggerModule.forRoot({
       serverLoggingUrl: `${environment.api.logs.url}api/logs`,
       level: environment.logLevel,
       serverLogLevel: environment.serverLogLevel,
-      disableConsoleLogging: false
+      disableConsoleLogging: false,
     }),
     DirectivesModule,
     SidenavModule,
-    MaterialColorPickerModule
+    MaterialColorPickerModule,
   ],
   providers: [
     AuthenticationService,
@@ -72,12 +80,9 @@ import { HeaderComponent } from './layout/header/header.component';
     FormService,
     ThemeService,
     ConfigService,
-    { provide: OverlayContainer, useClass: FullscreenOverlayContainer }
+    { provide: OverlayContainer, useClass: FullscreenOverlayContainer },
   ],
-  entryComponents: [
-    DialogComponent,
-    SearchComponent,
-  ],
-  bootstrap: [AppComponent]
+  entryComponents: [DialogComponent, SearchComponent],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

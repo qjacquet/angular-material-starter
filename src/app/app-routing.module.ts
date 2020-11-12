@@ -5,29 +5,38 @@ import { AuthGuard } from './core/helpers/auth.guard';
 const routes: Routes = [
   {
     path: 'auth',
-    loadChildren: () => import('./routes/authentication/authentication.module').then(m => m.AuthenticationModule),
+    loadChildren: () =>
+      import('./routes/authentication/authentication.module').then(
+        (m) => m.AuthenticationModule
+      ),
   },
   {
     path: '',
-    loadChildren: () => import('./routes/home/home.module').then(m => m.HomeModule),
-    canActivate: [AuthGuard]
+    loadChildren: () =>
+      import('./routes/home/home.module').then((m) => m.HomeModule),
+    canActivate: [AuthGuard],
   },
   {
     path: 'movies',
-    loadChildren: () => import('./routes/movies/movies.module').then(m => m.MoviesModule),
-    canActivate: [AuthGuard]
+    loadChildren: () =>
+      import('./routes/movies/movies.module').then((m) => m.MoviesModule),
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'demo',
+    loadChildren: () =>
+      import('./routes/demo/demo.module').then((m) => m.DemoModule),
+    canActivate: [AuthGuard],
   },
   {
     path: '**',
-    redirectTo: ''
-  }
+    redirectTo: '',
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
-  providers: [
-    AuthGuard
-  ]
+  providers: [AuthGuard],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

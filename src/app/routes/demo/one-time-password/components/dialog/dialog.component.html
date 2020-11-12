@@ -1,0 +1,17 @@
+<div fxLayout="column" fxLayoutAlign="center" >
+    <h1 mat-dialog-title>One Time Password</h1>
+    <div mat-dialog-content>
+        <p>What is your phone number ?</p>
+        <div fxLayout="row">
+            <mat-form-field appearance="outline"  fxFlex>
+                <mat-label>Phone number</mat-label>
+                <input type="tel" matInput>
+                <mat-icon matSuffix>phone</mat-icon>
+            </mat-form-field>
+        </div>
+    </div>
+    <div mat-dialog-actions align="end">
+        <button mat-button>Cancel</button>
+        <button mat-raised-button color="primary">Send Code</button>
+    </div>
+</div>
